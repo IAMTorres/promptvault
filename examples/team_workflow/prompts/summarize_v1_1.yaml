@@ -1,0 +1,23 @@
+name: summarize
+version: "1.1"
+description: Summarize a text to a given word count — updated March 2025.
+author: colleague
+updated: 2025-03-10
+tags: [summarization, text-processing]
+
+template: |
+  Please summarize the text below.
+  Try to keep it around $max_words words.
+  Be helpful and include context where useful.
+
+  Text:
+  $text
+
+variables:
+  text:
+    type: str
+    required: true
+  max_words:
+    type: int
+    required: false
+    default: 100

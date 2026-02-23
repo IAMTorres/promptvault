@@ -1,0 +1,42 @@
+name: reply_email
+version: "1.0"
+description: Draft a professional email reply given context and desired tone.
+author: your-name
+tags: [email, communication, customer-support]
+
+template: |
+  Write a professional email reply with a $tone tone.
+  The reply should address all points raised in the original email.
+  Keep it concise — no more than $max_lines lines.
+  Sign off with: $signature
+
+  Original email:
+  $original_email
+
+  Context / instructions:
+  $context
+
+variables:
+  original_email:
+    type: str
+    required: true
+    description: The email being replied to
+  context:
+    type: str
+    required: true
+    description: What the reply should communicate or achieve
+  tone:
+    type: str
+    required: false
+    default: professional
+    description: "Desired tone: professional, friendly, formal, apologetic"
+  max_lines:
+    type: int
+    required: false
+    default: 10
+    description: Maximum number of lines in the reply body
+  signature:
+    type: str
+    required: false
+    default: "Best regards"
+    description: Sign-off phrase

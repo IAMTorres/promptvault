@@ -1,0 +1,35 @@
+name: sql_query
+version: "1.0"
+description: Generate a SQL query from a natural language question and a schema.
+author: your-name
+tags: [sql, database, developer-tools, text-to-sql]
+
+template: |
+  Generate a valid $dialect SQL query for the following question.
+  Use only the tables and columns defined in the schema below.
+  Return only the SQL — no explanation, no markdown.
+
+  Schema:
+  $schema
+
+  Question:
+  $question
+
+variables:
+  question:
+    type: str
+    required: true
+    description: Natural language question to answer with SQL
+  schema:
+    type: str
+    required: true
+    description: |
+      Database schema as CREATE TABLE statements or a description of tables/columns.
+      Example:
+        users(id, name, email, created_at)
+        orders(id, user_id, total, status, created_at)
+  dialect:
+    type: str
+    required: false
+    default: PostgreSQL
+    description: "SQL dialect: PostgreSQL, MySQL, SQLite, SQL Server"

@@ -1,0 +1,27 @@
+name: code_review
+version: "1.0"
+description: Review a code snippet for bugs, security issues and improvements.
+author: your-name
+tags: [code, review, developer-tools]
+
+template: |
+  Review the following $language code.
+  Identify: bugs, security issues, performance problems, and style improvements.
+  Be concise and direct. Format as a numbered list.
+  If the code looks correct, say "No issues found."
+
+  Code:
+  ```$language
+  $code
+  ```
+
+variables:
+  code:
+    type: str
+    required: true
+    description: The code snippet to review
+  language:
+    type: str
+    required: false
+    default: python
+    description: Programming language (python, javascript, csharp, etc.)

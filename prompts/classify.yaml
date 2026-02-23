@@ -1,0 +1,24 @@
+name: classify
+version: "1.0"
+description: Classify text into one of the given categories.
+author: your-name
+tags: [classification, routing, moderation]
+
+template: |
+  Classify the following text into exactly one of these categories: $categories.
+  Return only the category name — nothing else.
+
+  Text:
+  $text
+
+variables:
+  text:
+    type: str
+    required: true
+    description: The text to classify
+  categories:
+    type: str
+    required: true
+    description: |
+      Comma-separated list of valid categories.
+      Example: "positive, negative, neutral"

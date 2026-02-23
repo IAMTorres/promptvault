@@ -1,0 +1,24 @@
+name: summarize
+version: "1.0"
+description: Summarize a text to a given word count, focusing on key points only.
+author: your-name
+tags: [summarization, text-processing, general]
+
+template: |
+  Summarize the following text in $max_words words or fewer.
+  Focus only on the key points. Do not add opinions or interpretations.
+  Return only the summary — no preamble, no labels.
+
+  Text:
+  $text
+
+variables:
+  text:
+    type: str
+    required: true
+    description: The text to summarize
+  max_words:
+    type: int
+    required: false
+    default: 100
+    description: Maximum word count of the summary

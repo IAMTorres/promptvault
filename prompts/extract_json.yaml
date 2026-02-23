@@ -1,0 +1,28 @@
+name: extract_json
+version: "1.0"
+description: Extract structured data from unstructured text and return as JSON.
+author: your-name
+tags: [extraction, json, structured-output]
+
+template: |
+  Extract the following fields from the text below and return a valid JSON object.
+  If a field is not found, use null.
+  Return only the JSON — no explanation, no markdown, no code fences.
+
+  Fields to extract:
+  $fields
+
+  Text:
+  $text
+
+variables:
+  text:
+    type: str
+    required: true
+    description: The unstructured text to extract from
+  fields:
+    type: str
+    required: true
+    description: |
+      Comma-separated list of fields to extract.
+      Example: "name, age, email, company"
